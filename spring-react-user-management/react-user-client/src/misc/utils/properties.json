@@ -1,0 +1,10 @@
+{
+  "properties" : {
+    "companyName": "Mahaswami Software",
+    "applicationName": "Mahaswami Employee Management",
+    "InitialAuth": {
+       "userName": "admin",
+       "password": "admin"
+    }
+  }
+}

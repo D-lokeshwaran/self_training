@@ -1,0 +1,53 @@
+import { useState } from 'react'
+import { useAuth } from './security/AuthContext'
+import { useNavigate } from 'react-router-dom'
+
+export default function LoginComponent() {
+
+    const auth = useAuth();
+    const navigateTo = useNavigate();
+
+    const[username, setUsername] = useState("developer")
+    const[password, setPassword] = useState("")
+    const[failed, setFailed] = useState(false)
+
+    function handleUsernameChange(ev) {
+        setUsername(ev.target.value);
+    }
+
+    function handlePasswordChange(ev) {
+        setPassword(ev.target.value);
+    }
+
+    function handleLogin() {
+        if(auth.authenticate(username, password)) {
+            navigateTo("/users")
+        } else {
+            setFailed(true);
+        }
+    }
+
+    return(
+        <div>
+            <div className="login">
+                <h1>Time To LogIn</h1>
+                {failed && <>Authentication Failed, Please Check your Credentials!</>}
+                <div className="loginForm">
+                    <div>
+                        <label>User Name</label>
+                        <input type="text" name="username" value={username}
+                               onChange={handleUsernameChange}/>
+                    </div>
+                    <div>
+                        <label>Password</label>
+                        <input type="password" name="password" value={password}
+                               onChange={handlePasswordChange}/>
+                    </div>
+                    <div>
+                        <button onClick={handleLogin}>Log In</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}

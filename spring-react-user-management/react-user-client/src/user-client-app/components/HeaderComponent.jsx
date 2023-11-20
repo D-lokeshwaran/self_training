@@ -7,7 +7,7 @@ export default function HeaderComponent() {
     const isAuthenticated = auth.isAuthenticated;
 
     return(
-        <header className="border-bottom border-light border-5 mb-5 p-2">
+        <header className="border-bottom border-light border-5 p-2">
             <div className="container">
                 <div className="row">
                     <nav className="navbar navbar-expand-lg">

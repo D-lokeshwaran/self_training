@@ -5,9 +5,11 @@ import com.springboot.spring_user_rest_api.repositories.UserRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.Duration;
 import java.util.*;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/users")
 public class UserController {
 

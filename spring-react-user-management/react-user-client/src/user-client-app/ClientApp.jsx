@@ -4,9 +4,7 @@ import {
     Route,
     Navigate
 } from 'react-router-dom'
-import LoginComponent from './components/LoginComponent'
-import ErrorComponent from './components/ErrorComponent'
-import HeaderComponent from './components/HeaderComponent'
+import { Welcome, Header, Login, Error }  from './components'
 import AuthProvider, { useAuth } from './components/security/AuthContext'
 import ListUsersComp from './components/user/ListUsersComp'
 
@@ -22,18 +20,23 @@ export default function ClientApp() {
     return(
         <AuthProvider>
             <BrowserRouter>
-                <HeaderComponent/>
+                <Header/>
                 <Routes>
                     <Route path="/" element={<Navigate to="/login"/>}/>
-                    <Route path='/login' element={<LoginComponent/>}/>
+                    <Route path='/login' element={<Login/>}/>
+
+                    <Route path='/home' element={
+                        <AuthenticatedRoute>
+                             <Welcome/>
+                        </AuthenticatedRoute>}/>
 
                     <Route path='/users' element={
                         <AuthenticatedRoute>
                             <ListUsersComp/>
                         </AuthenticatedRoute>}/>
 
-                    <Route path='/logout' element={<LoginComponent/>}/>
-                    <Route path='*' element={<ErrorComponent/>}/>
+                    <Route path='/logout' element={<Login/>}/>
+                    <Route path='*' element={<Error/>}/>
                 </Routes>
             </BrowserRouter>
         </AuthProvider>

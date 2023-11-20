@@ -1,10 +1,10 @@
-import { LoginUserService } from "./user-client-service/LoginUserService.jsx";
-//import './App.css'
+import ClientApp from "./user-client-app/ClientApp";
+import styles from './App.module.css'
 
 function App() {
   return (
-    <div className="App">
-        <LoginUserService/>
+    <div className={styles.app}>
+        <ClientApp/>
     </div>
   );
 }

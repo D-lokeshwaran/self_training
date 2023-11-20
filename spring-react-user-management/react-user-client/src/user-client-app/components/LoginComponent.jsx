@@ -33,12 +33,12 @@ export default function LoginComponent() {
                 <h1>Time To LogIn</h1>
                 {failed && <>Authentication Failed, Please Check your Credentials!</>}
                 <div className="loginForm">
-                    <div>
+                    <div className="m-3">
                         <label>User Name</label>
                         <input type="text" name="username" value={username}
                                onChange={handleUsernameChange}/>
                     </div>
-                    <div>
+                    <div className="m-3">
                         <label>Password</label>
                         <input type="password" name="password" value={password}
                                onChange={handlePasswordChange}/>

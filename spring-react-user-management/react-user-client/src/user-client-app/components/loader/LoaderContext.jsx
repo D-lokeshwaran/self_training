@@ -1,6 +1,8 @@
 import { createContext, useContext, useState } from 'react'
 import ClipLoader from "react-spinners/ClipLoader"
 import styles from './Loader.module.css'
+import Spinner from 'react-bootstrap/Spinner';
+// import { retrieveAllUsers } from '../../api/UserApiService'
 
 const LoaderContext = createContext(false); // NEed to impl delay for loader...
 
@@ -21,10 +23,44 @@ export default function LoaderProvider({children}) {
 export function MyClipLoader() {
     return(
         <div className={styles.loader}>
-            <ClipLoader size={40}/>
+            <Spinner animation="border"/>
         </div>
     )
 }
+// experimental Class Loader
+/* export class Loader2 extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            loading: true,
+            data: []
+        }
+    }
+
+    componentDidMount() {
+        this.setState({ loading: true }, () => {
+            retrieveAllUsers()
+            .then(result => this.setState({
+                loading: false,
+                data: [...result],
+            }))
+            .catch(error => {
+                this.setState({loading: false})
+                console.log(error)
+            });
+        });
+    }
+
+    render() {
+        return(
+            <>
+                {this.state.loading ? <MyClipLoader/> : this.props.children}
+            </>
+        )
+    }
+
+} */
 
 /* this is for class component also need to try
  onClick = () => {

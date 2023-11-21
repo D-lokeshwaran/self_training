@@ -8,6 +8,7 @@ import { Welcome, Header, Login, Error }  from './components'
 import AuthProvider, { useAuth } from './components/security/AuthContext'
 import LoaderProvider from './components/loader/LoaderContext'
 import ListUsersComp from './components/user/ListUsersComp'
+import UserDetails from './components/user/createOrUpdateUserComp'
 
 
 function AuthenticatedRoute({children}) {
@@ -20,28 +21,33 @@ function AuthenticatedRoute({children}) {
 export default function ClientApp() {
     return(
         <AuthProvider>
-            <LoaderProvider>
-                <BrowserRouter>
-                    <Header/>
-                    <Routes>
-                        <Route path="/" element={<Navigate to="/login"/>}/>
-                        <Route path='/login' element={<Login/>}/>
+            <BrowserRouter>
+                <Header/>
+                    <LoaderProvider>
+                        <Routes>
+                            <Route path="/" element={<Navigate to="/login"/>}/>
+                            <Route path='/login' element={<Login/>}/>
 
-                        <Route path='/home' element={
-                            <AuthenticatedRoute>
-                                 <Welcome/>
-                            </AuthenticatedRoute>}/>
+                            <Route path='/home' element={
+                                <AuthenticatedRoute>
+                                     <Welcome/>
+                                </AuthenticatedRoute>}/>
 
-                        <Route path='/users' element={
-                            <AuthenticatedRoute>
-                                <ListUsersComp/>
-                            </AuthenticatedRoute>}/>
+                            <Route path='/users' element={
+                                <AuthenticatedRoute>
+                                    <ListUsersComp/>
+                                </AuthenticatedRoute>}/>
 
-                        <Route path='/logout' element={<Login/>}/>
-                        <Route path='*' element={<Error/>}/>
-                    </Routes>
+                            <Route path='/user/:id' element={
+                                <AuthenticatedRoute>
+                                    <UserDetails/>
+                                </AuthenticatedRoute>}/>
+
+                            <Route path='/logout' element={<Login/>}/>
+                            <Route path='*' element={<Error/>}/>
+                        </Routes>
+                    </LoaderProvider>
                 </BrowserRouter>
-            </LoaderProvider>
         </AuthProvider>
     )
 }

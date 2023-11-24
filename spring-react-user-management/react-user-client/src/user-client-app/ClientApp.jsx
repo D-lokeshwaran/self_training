@@ -43,7 +43,7 @@ export default function ClientApp() {
                                     <UserDetails/>
                                 </AuthenticatedRoute>}/>
 
-                            <Route path='/logout' element={<Login/>}/>
+                            <Route path='/logout' element={<Navigate to="/login"/>}/>
                             <Route path='*' element={<Error/>}/>
                         </Routes>
                     </LoaderProvider>

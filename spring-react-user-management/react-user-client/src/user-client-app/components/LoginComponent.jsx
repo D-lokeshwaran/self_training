@@ -7,7 +7,7 @@ export default function LoginComponent() {
     const auth = useAuth();
     const navigateTo = useNavigate();
 
-    const[username, setUsername] = useState("developer")
+    const[username, setUsername] = useState("")
     const[password, setPassword] = useState("")
     const[failed, setFailed] = useState(false)
 
@@ -19,9 +19,9 @@ export default function LoginComponent() {
         setPassword(ev.target.value);
     }
 
-    function handleLogin() {
-        if(auth.authenticate(username, password)) {
-            navigateTo("/users")
+    async function handleLogin() {
+        if(await auth.authenticate(username, password)) {
+            navigateTo("/home")
         } else {
             setFailed(true);
         }

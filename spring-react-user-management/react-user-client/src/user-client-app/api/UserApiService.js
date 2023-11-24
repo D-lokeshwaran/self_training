@@ -1,14 +1,16 @@
+import { fetchApiClient } from './fetchApiClient'
+
 export const retrieveAllUsers =
-    () => fetch('/users/getAllUsers').then(resp => resp.json());
+    () => fetchApiClient('/users/getAllUsers').then(resp => resp.json());
 
 export const deleteUserById =
-    (id) => fetch(`/users/${id}`, {method: "DELETE"})
+    (id) => fetchApiClient(`/users/${id}`, {method: "DELETE"})
 
 export const findUserById =
-    (id) => fetch(`/users/${id}`).then(resp => resp.json());
+    (id) => fetchApiClient(`/users/${id}`).then(resp => resp.json());
 
 export const createUserApi =
-    (user) => fetch("/users/createUser", {
+    (user) => fetchApiClient("/users/createUser", {
                     method: "POST",
                     headers: {
                         'content-type': 'application/json'
@@ -17,7 +19,7 @@ export const createUserApi =
                 });
 
 export const updateUserApi =
-    (user, id) => fetch(`/users/updateUser/${id}`, {
+    (user, id) => fetchApiClient(`/users/updateUser/${id}`, {
                     method: "PUT",
                     headers: {
                         'content-type': 'application/json'

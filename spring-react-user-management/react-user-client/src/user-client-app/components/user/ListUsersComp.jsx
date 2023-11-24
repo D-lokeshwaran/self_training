@@ -1,4 +1,4 @@
-import { retrieveAllUsers, deleteUserById, findUserById } from '../../api/UserApiService'
+import { retrieveAllUsers, deleteUserById } from '../../api/UserApiService'
 import { useEffect, useState } from 'react'
 import { useLoader } from '../loader/LoaderContext'
 import { useNavigate } from 'react-router-dom'

@@ -9,7 +9,6 @@ import java.time.Duration;
 import java.util.*;
 
 @RestController
-@CrossOrigin
 @RequestMapping("/users")
 public class UserController {
 
@@ -17,6 +16,11 @@ public class UserController {
 
     public UserController(UserRepository userRepository) {
         this.userRepository = userRepository;
+    }
+
+    @GetMapping("/basicauth")
+    public String basicAuth() {
+        return "Success";
     }
 
     @GetMapping("/getAllUsers")

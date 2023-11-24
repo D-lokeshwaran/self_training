@@ -31,19 +31,13 @@ export default function UserDetails() {
     }
 
     function onSubmit(values) {
-        // create / update api call
-        // return to list
         const user = {
             name: values.name,
             age: values.age,
             gender: values.gender
         }
         if(id == -1) {
-            createUserApi(user)
-            .then(resp => {
-                navigateTo("/users")
-            })
-            .catch(error => console.log(error));
+            handlePromise(createUserApi(user));
         } else {
             handlePromise(updateUserApi(user, id));
         }

@@ -84,15 +84,15 @@ export default function UserDetails() {
                             <ErrorMessage
                                 name="name"
                                 component="div"
-                                className="alert alert-warning"/>
+                                className="alert alert-warning" key="name-error"/>
                             <ErrorMessage
                                 name="age"
                                 component="div"
-                                className="alert alert-warning"/>
+                                className="alert alert-warning" key="age-error"/>
                             <ErrorMessage
                                 name="gender"
                                 component="div"
-                                className="alert alert-warning"/>
+                                className="alert alert-warning" key="gender-error"/>
                             <fieldset className="form-group">
                                 <label>User Name</label>
                                 <Field className="form-control" type="text" name="name"/>

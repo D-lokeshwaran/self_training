@@ -4,11 +4,10 @@ import {
     Route,
     Navigate
 } from 'react-router-dom'
-import { Welcome, Header, Login, Error }  from './components'
+import { Welcome, Header,
+        Login, Error,
+        Loader, UsersList, UserDetail }  from './components'
 import AuthProvider, { useAuth } from './components/security/AuthContext'
-import LoaderProvider from './components/loader/LoaderContext'
-import ListUsersComp from './components/user/ListUsersComp'
-import UserDetails from './components/user/createOrUpdateUserComp'
 
 
 function AuthenticatedRoute({children}) {
@@ -23,7 +22,7 @@ export default function ClientApp() {
         <AuthProvider>
             <BrowserRouter>
                 <Header/>
-                    <LoaderProvider>
+                    <Loader>
                         <Routes>
                             <Route path="/" element={<Navigate to="/login"/>}/>
                             <Route path='/login' element={<Login/>}/>
@@ -35,18 +34,18 @@ export default function ClientApp() {
 
                             <Route path='/users' element={
                                 <AuthenticatedRoute>
-                                    <ListUsersComp/>
+                                    <UsersList/>
                                 </AuthenticatedRoute>}/>
 
                             <Route path='/user/:id' element={
                                 <AuthenticatedRoute>
-                                    <UserDetails/>
+                                    <UserDetail/>
                                 </AuthenticatedRoute>}/>
 
                             <Route path='/logout' element={<Navigate to="/login"/>}/>
                             <Route path='*' element={<Error/>}/>
                         </Routes>
-                    </LoaderProvider>
+                    </Loader>
                 </BrowserRouter>
         </AuthProvider>
     )

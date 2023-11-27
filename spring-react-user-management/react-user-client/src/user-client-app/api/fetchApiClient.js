@@ -1,9 +1,12 @@
+export const proxy = "http://localhost:8083"
+
 function handleOptions(options) {
     const update = { ...options }; // get all options
-    if (localStorage.token) {
+    const token = localStorage.token;
+    if (token) {
         update.headers = { // if token present add token
            ...update.headers,
-           'Authorization': localStorage.token,
+           'Authorization': token,
         };
     }
     return update;

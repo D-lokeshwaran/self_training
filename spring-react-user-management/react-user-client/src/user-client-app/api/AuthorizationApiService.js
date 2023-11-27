@@ -1,4 +1,4 @@
-import { fetchApiClient } from './fetchApiClient'
+import { proxy } from './fetchApiClient'
 //export const executeBasicAuthApi =
 //    (token) => fetch("/users/basicauth", {
 //                   headers: {
@@ -8,4 +8,8 @@ import { fetchApiClient } from './fetchApiClient'
 //
 
 export const executeBasicAuthApi =
-    (token) => fetchApiClient("/users/basicauth");
+    (token) => fetch(proxy + "/users/basicauth", {
+                    headers: {
+                        'Authorization': token
+                    }
+                });

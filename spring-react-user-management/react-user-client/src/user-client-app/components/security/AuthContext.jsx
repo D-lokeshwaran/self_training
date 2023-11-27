@@ -10,7 +10,6 @@ export default function AuthProvider({children}) {
     const[isAuthenticated, setAuthenticated] = useState(false);
     const[username, setUsername] = useState('');
     const[token, setToken] = useState(null);
-//     const[rememberMe, setRememberMe] = useState(false); // later impl
 
 
     async function authenticate(username, password) {

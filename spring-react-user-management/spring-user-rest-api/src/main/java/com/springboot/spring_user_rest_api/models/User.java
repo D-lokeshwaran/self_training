@@ -30,7 +30,6 @@ public class User {
     private String gender;
 
     public void fillUser(Map<String, Object> body){
-        if(body == null) return;
         String name = body.get("name").toString();
         String age =  body.get("age").toString();
         String gender =  body.get("gender").toString();

@@ -10,7 +10,7 @@ import { Welcome, Header,
 import AuthProvider, { useAuth } from './components/security/AuthContext'
 
 
-function AuthenticatedRoute({children}) {
+function AuthenticatedRoute({children}) { // HOC component to authenticate...
     const auth = useAuth();
     if(auth.isAuthenticated)
         return children;

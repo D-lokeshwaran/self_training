@@ -1,0 +1,31 @@
+:root {
+    --primary_color: #3759ff;
+}
+
+.login_form {
+    margin: 0 auto;
+    box-shadow: 0px 2px 4px grey;
+    width: 30%;
+    border-radius: 10px;
+    padding: 50px;
+    margin-top: 3%;
+}
+.data_field {
+    width: 100%;
+    display: block;
+    padding: 4.5px;
+}
+.data_field:focus {
+    outline-color: var(--primary_color);
+}
+.login {
+    width: 100%;
+    border: none;
+    background-color: var(--primary_color);
+    color: white;
+    padding: 6px;
+}
+.mtb_20 {
+    margin: 20px 0px;
+}
+.floatLeft { float: left; }

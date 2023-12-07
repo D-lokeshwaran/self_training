@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom'
 import { useLoader } from './loader/LoaderContext'
+import { useAuth } from './security/AuthContext'
 
 export default function WelcomeComponent() {
 
     const loader = useLoader();
+    const { username } = useAuth();
 
     function testLoader() {
         loader.setLoading(true);
@@ -14,7 +16,7 @@ export default function WelcomeComponent() {
 
     return(
         <div>
-            <h1>Hello User: lokesh Welcome to our Community</h1>
+            <h1>Hello User: {username} Welcome to our Community</h1>
             <span>Click this to <Link to="/users">manage users</Link> </span>
             <div className="mt-4">
                 <button className="btn btn-success"

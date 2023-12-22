@@ -15,6 +15,7 @@ public class SpringTrainingPart2Application {
 	}
 
 	// do this r use @CrossOrigin to support cross-origin for yr front end
+	// demo change
 	@Bean
 	public WebMvcConfigurer webMvcConfigurer() {
 		return new WebMvcConfigurer() {
